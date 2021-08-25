@@ -26,6 +26,9 @@
     height: 80px;
     border-radius: 50%;
 }
+.offcanvas-body div{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 a{
     text-decoration: none !important;
     margin-left: 5px;
@@ -54,8 +57,7 @@ a{
    .offcanvas-body div{
        margin-top: 10%;
        font-weight: bold;
-       font-size: 18px;
-       font-family: "Lucida Console", "Courier New", monospace;
+       font-size: 22px;
    }
 
 }
@@ -75,22 +77,15 @@ a{
     .user-navs{
         margin-left: 15% !important;
     }
-    .offcanvas-body div{
-        margin-top: 10%;
-        font-weight: bold;
-        font-size: 15px;
-       }
     .signupDiv , .loginDiv{
         width: 80% !important;
     }
     .offcanvas{
         width: 270px !important;
     }
-    .offcanvas-body div{
+    .offcanvas-body div , .offcanvas-body p{
         margin-top: 10%;
-        font-weight: bold;
         font-size: 13px;
-        font-family: "Lucida Console", "Courier New", monospace;
     }
   }
   
@@ -114,16 +109,16 @@ a{
   
 @media only screen and (max-width: 450px) {
     .main-navbar ul li{
-        font-size: 30px;
+        font-size: 23px;
     }
     .user-navs{
-        margin-left: 10% !important;
+        margin-left: 8% !important;
     }
   }
   
 @media only screen and (max-width: 365px) {
     .main-navbar ul li{
-        font-size: 30px;
+        font-size: 18px;
     }
     .user-navs{
         margin-left: 8% !important;
@@ -132,18 +127,18 @@ a{
   
 @media only screen and (max-width: 325px) {
     .main-navbar ul li{
-        font-size: 20px;
+        font-size: 18px;
     }
     .user-navs{
-        margin-left: 10% !important;
+        margin-left: 8% !important;
     }
 }
   @media only screen and (max-width: 295px) {
       .main-navbar ul li{
-          font-size: 17px;
+          font-size: 15px;
       }
       .user-navs{
-          margin-left: 8% !important;
+          margin-left: 7% !important;
       }
       .offcanvas{
           width: 150px !important;

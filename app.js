@@ -115,7 +115,7 @@ var getCurrentUser = () => {
     }
     if (user != null) {
         currentUserName.innerHTML = user.name;
-        currentUserEmail.innerHTML = user.email;
+        currentUserEmail.innerHTML = user.email.slice(0,-10);
         currentUserCity.innerHTML = user.city;
         currentUserNumber.innerHTML = user.number;
     }
