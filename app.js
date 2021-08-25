@@ -103,6 +103,13 @@ var getCurrentUser = () => {
     if (user == null) {
         location.href = 'login.html';
     }
+    if(user!=null){
+        currentUserName.innerHTML = user.name;
+        currentUserEmail.innerHTML = user.email;
+        currentUserAddress.innerHTML = user.address;
+        currentUserName.innerHTML = user.number;
+
+    }
 }
 
 const post = () => {
@@ -137,5 +144,7 @@ const post = () => {
         title.value = "";
         description.value = "";
     }
-
+    if(title.value=='' || description.value == ''){
+        alert('Fill title and description box to Post items')
+    }
 }
