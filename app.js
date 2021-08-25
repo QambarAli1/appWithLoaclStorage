@@ -127,7 +127,9 @@ var getCurrentUser = () => {
 const post = () => {
     var title = document.getElementById('title');
     var description = document.getElementById('description');
-
+    if (title.value == '' && description.value == '') {
+        alert('Fill title and description box to Post items')
+    }
     if (title.value != '' && description.value != '') {
         var post = document.getElementById('postItem');
         var divMain = document.createElement('div');
@@ -156,7 +158,5 @@ const post = () => {
         title.value = "";
         description.value = "";
     }
-    if (title.value == '' || description.value == '') {
-        alert('Fill title and description box to Post items')
-    }
+    
 }
