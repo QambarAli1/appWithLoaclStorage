@@ -1,11 +1,11 @@
 const signUp = () => {
-    // get input values
     var name = document.getElementById('name');
     var email = document.getElementById("email");
     var password = document.getElementById("password");
     var city = document.getElementById('city');
     var number = document.getElementById('number');
     var message = document.getElementById("message");
+    var validemail = email.value.slice(-10, email.value.length)
     var inputs = document.getElementsByTagName('input')
     var flag = true;
     for (i = 0; i < inputs.length; i++) {
@@ -16,10 +16,7 @@ const signUp = () => {
     if (flag == false) {
         alert('Fill All credentials');
     }
-    if (password.value.length < 6) {
-        alert('Password must be at least 6 characters')
-    }
-    if (flag == true && password.value.length >= 6) {
+    if (flag == true && password.value.length >= 6 && validemail == '@gmail.com') {
 
         var user = {
             name: name.value,
@@ -50,16 +47,15 @@ const signUp = () => {
         setTimeout(() => {
             message.innerHTML = "";
         }, 2000);
-
-
-        // console.log(user);
     }
 
-
-
+    if (validemail != '@gmail.com') {
+        alert('Invalid Email');
+    }
+    else if (password.value.length < 6) {
+        alert('Password must be at least 6 characters')
+    }
 }
-
-
 
 
 const login = () => {
@@ -94,9 +90,7 @@ const login = () => {
             message.innerHTML = "";
         }, 2000);
     }
-    if (email.value == '' || password.value == '') {
-        message.innerHTML = 'Fill All credentials'
-    }
+    
 }
 
 
@@ -124,7 +118,6 @@ var getCurrentUser = () => {
         currentUserEmail.innerHTML = user.email;
         currentUserCity.innerHTML = user.city;
         currentUserNumber.innerHTML = user.number;
-
     }
 }
 
