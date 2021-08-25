@@ -3,7 +3,7 @@ const signUp = () => {
     var name = document.getElementById('name');
     var email = document.getElementById("email");
     var password = document.getElementById("password");
-    var address = document.getElementById('address');
+    var city = document.getElementById('city');
     var number = document.getElementById('number');
     var message = document.getElementById("message");
     var inputs = document.getElementsByTagName('input')
@@ -13,16 +13,19 @@ const signUp = () => {
             flag = false
         }
     }
-    if(flag==false){
+    if (flag == false) {
         alert('Fill All credentials');
     }
-    if (flag == true) {
+    if (password.value.length < 6) {
+        alert('Password must be at least 6 characters')
+    }
+    if (flag == true && password.value.length >= 6) {
 
         var user = {
             name: name.value,
             email: email.value,
             password: password.value,
-            address: address.value,
+            city: city.value,
             number: number.value
         }
 
@@ -51,6 +54,7 @@ const signUp = () => {
 
         // console.log(user);
     }
+
 
 
 }
@@ -108,17 +112,17 @@ const logout = () => {
 var getCurrentUser = () => {
     var currentUserName = document.getElementById('currentUserName');
     var currentUserEmail = document.getElementById('currentUserEmail');
-    var currentUserAddress = document.getElementById('currentUserAddress');
+    var currentUserCity = document.getElementById('currentUserCity');
     var currentUserNumber = document.getElementById('currentUserNumber');
     var user = JSON.parse(localStorage.getItem("user"));
-    console.log(user);
+    // console.log(user);
     if (user == null) {
         location.href = 'login.html';
     }
     if (user != null) {
         currentUserName.innerHTML = user.name;
         currentUserEmail.innerHTML = user.email;
-        currentUserAddress.innerHTML = user.address;
+        currentUserCity.innerHTML = user.city;
         currentUserNumber.innerHTML = user.number;
 
     }
@@ -158,5 +162,5 @@ const post = () => {
         title.value = "";
         description.value = "";
     }
-    
+
 }

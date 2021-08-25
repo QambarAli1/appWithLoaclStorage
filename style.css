@@ -26,6 +26,10 @@
     height: 80px;
     border-radius: 50%;
 }
+a{
+    text-decoration: none !important;
+    margin-left: 5px;
+}
 #postItem{
     display: flex;
     flex-direction: row;
