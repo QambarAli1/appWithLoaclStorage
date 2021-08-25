@@ -6,39 +6,51 @@ const signUp = () => {
     var address = document.getElementById('address');
     var number = document.getElementById('number');
     var message = document.getElementById("message");
-
-    var user = {
-        name: name.value,
-        email: email.value,
-        password: password.value,
-        address: address.value,
-        number: number.value
+    var inputs = document.getElementsByTagName('input')
+    var flag = true;
+    for (i = 0; i < inputs.length; i++) {
+        if (inputs[i].value == '') {
+            flag = false
+        }
     }
-
-    var users = JSON.parse(localStorage.getItem("users")) || [];
-    // get indx
-    var userIdx = users.findIndex(function (val) {
-        return val.email.toLowerCase() === user.email.toLowerCase()
-    });
-
-    if (userIdx === -1) {
-        // this user is not exist
-        users.push(user);
-        // store in storage
-        localStorage.setItem("users", JSON.stringify(users));
-        // redirect to login page
-        location.href = "login.html";
+    if(flag==false){
+        alert('Fill All credentials');
     }
-    else {
-        message.innerHTML = user.email + " use in another account";
+    if (flag == true) {
+
+        var user = {
+            name: name.value,
+            email: email.value,
+            password: password.value,
+            address: address.value,
+            number: number.value
+        }
+
+        var users = JSON.parse(localStorage.getItem("users")) || [];
+        // get indx
+        var userIdx = users.findIndex(function (val) {
+            return val.email.toLowerCase() === user.email.toLowerCase()
+        });
+
+        if (userIdx === -1) {
+            // this user is not exist
+            users.push(user);
+            // store in storage
+            localStorage.setItem("users", JSON.stringify(users));
+            // redirect to login page
+            location.href = "login.html";
+        }
+        else {
+            message.innerHTML = user.email + " use in another account";
+        }
+        // clear state
+        setTimeout(() => {
+            message.innerHTML = "";
+        }, 2000);
+
+
+        // console.log(user);
     }
-    // clear state
-    setTimeout(() => {
-        message.innerHTML = "";
-    }, 2000);
-
-
-    // console.log(user);
 
 
 }
@@ -103,11 +115,11 @@ var getCurrentUser = () => {
     if (user == null) {
         location.href = 'login.html';
     }
-    if(user!=null){
+    if (user != null) {
         currentUserName.innerHTML = user.name;
         currentUserEmail.innerHTML = user.email;
         currentUserAddress.innerHTML = user.address;
-        currentUserName.innerHTML = user.number;
+        currentUserNumber.innerHTML = user.number;
 
     }
 }
@@ -127,7 +139,7 @@ const post = () => {
         divMain.setAttribute("class", "card")
         divMain.setAttribute("style", "width: 18rem;")
         image.setAttribute("class", "card-img-top")
-        image.setAttribute("src", "images/user.jpg")
+        image.setAttribute("src", "images/program.png")
         divInner.setAttribute("class", "card-body")
         h5.setAttribute("class", "card-title")
         para.setAttribute("class", "card-text")
@@ -144,7 +156,7 @@ const post = () => {
         title.value = "";
         description.value = "";
     }
-    if(title.value=='' || description.value == ''){
+    if (title.value == '' || description.value == '') {
         alert('Fill title and description box to Post items')
     }
 }
