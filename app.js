@@ -37,8 +37,8 @@ const signUp = () => {
             users.push(user);
             // store in storage
             localStorage.setItem("users", JSON.stringify(users));
-            // redirect to login page
-            location.href = "login.html";
+            // redirect to index page
+            location.href = "index.html";
         }
         else {
             message.innerHTML = user.email + " use in another account";
@@ -97,7 +97,7 @@ const login = () => {
 const logout = () => {
     localStorage.removeItem("user");
     setTimeout(() => {
-        location.href = "login.html";
+        location.href = "index.html";
     }, 1000);
 }
 
@@ -111,7 +111,7 @@ var getCurrentUser = () => {
     var user = JSON.parse(localStorage.getItem("user"));
     // console.log(user);
     if (user == null) {
-        location.href = 'login.html';
+        location.href = 'index.html';
     }
     if (user != null) {
         currentUserName.innerHTML = user.name;
